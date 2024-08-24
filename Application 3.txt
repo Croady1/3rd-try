@@ -1,0 +1,156 @@
+<html>
+<head>
+  <title>Finance Direct Application</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="homepage">
+    <h1>Welcome to Finance Direct</h1>
+    <button id="applyBtn">Apply Now</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.homepage {
+  padding: 50px;
+}
+#applyBtn {
+  font-size: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#applyBtn:hover {
+  background-color: #0056b3;
+}
+document.getElementById('applyBtn').onclick = function() {
+  window.location.href = 'amount.html';
+};
+<html>
+<head>
+  <title>Loan Amount & Type</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h2>Select Your Loan Amount and Type</h2>
+  <form id="amountForm">
+    <label for="amount">Amount Required:</label>
+    <input type="number" id="amount" name="amount" required><br>
+    <label for="type">Loan Type:</label>
+    <select id="type" name="type">
+      <option value="personal">Personal</option>
+      <option value="business">Business</option>
+      <option value="mortgage">Mortgage</option>
+    </select><br>
+    <button type="submit">Next</button>
+  </form>
+  <script src="script.js"></script>
+</body>
+</html>
+<html>
+<head>
+  <title>Select Loan Options</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h2>Select Applicable Options</h2>
+  <form id="optionsForm">
+    <label><input type="checkbox" name="urgent"> I need the funds urgently</label><br>
+    <label><input type="checkbox" name="partner"> This loan is for me and my partner</label><br>
+    <!-- Additional checkboxes for other options -->
+    <button type="submit">Next</button>
+  </form>
+  <script src="script.js"></script>
+</body>
+</html>
+<html>
+<head>
+  <title>Enter Your Details</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h2>Enter Your Details</h2>
+  <form id="detailsForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br>
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address" required><br>
+    <!-- Additional fields for business, income, etc. -->
+    <button type="submit">Next</button>
+  </form>
+  <script src="script.js"></script>
+</body>
+</html>
+<html>
+<head>
+  <title>Verify Identity</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h2>Verify Your Identity</h2>
+  <form id="verifyForm">
+    <label for="idType">ID Type:</label>
+    <select id="idType" name="idType">
+      <option value="driversLicense">Driver’s License</option>
+      <option value="passport">Passport</option>
+    </select><br>
+    <label for="idNumber">ID Number:</label>
+    <input type="text" id="idNumber" name="idNumber" required><br>
+    <button type="submit">Next</button>
+  </form>
+  <script src="script.js"></script>
+</body>
+</html>
+<html>
+<head>
+  <title>Confirm Income & Expenses</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h2>Confirm Your Income & Expenses</h2>
+  <p>We will use a secure API to connect with your bank and verify the details.</p>
+  <button id="connectBankBtn">Connect Bank</button>
+  <script src="script.js"></script>
+</body>
+</html>
+<html>
+<head>
+  <title>Finish & Communication</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h2>Thank You for Your Application</h2>
+  <p>How would you like us to communicate with you?</p>
+  <form id="communicationForm">
+    <label><input type="radio" name="communication" value="email"> Email Only</label><br>
+    <label><input type="radio" name="communication" value="call"> Call Me</label><br>
+    <button type="submit">Submit</button>
+  </form>
+  <script src="script.js"></script>
+</body>
+</html>
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.post('/submitDetails', (req, res) => {
+  // Process user data here, e.g., save to database
+  res.redirect('/verify.html');
+});
+
+app.listen(3000, () => {
+  console.log('Server running on port 3000');
+});
